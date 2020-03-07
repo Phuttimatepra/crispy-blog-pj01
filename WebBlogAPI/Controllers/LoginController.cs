@@ -151,7 +151,6 @@ namespace WebBlogAPI.Controllers
             try
             {
                 Member data = _databaseContext.Members.Find(id);
-                
                 if (data != null)
                 {
                     
