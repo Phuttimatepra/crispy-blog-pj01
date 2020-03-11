@@ -1,19 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { FirstTimesComponent } from './components/first-times/first-times.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent
+    FirstTimesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
-  // bootstrap: [AppComponent]
-  bootstrap: [SignInComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

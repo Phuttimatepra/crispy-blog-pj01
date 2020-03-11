@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebBlogAPI.DataAccess;
+using AutoMapper;
 
 namespace WebBlogAPI
 {
@@ -42,16 +43,12 @@ namespace WebBlogAPI
                     builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
 
-                // options.AddPolicy("AllowSpecific", builder =>
-                // {
-                //     builder.WithOrigins("http://localhost:xxx","http://localhost:yyy")
-                //            .AllowAnyHeader().AllowAnyMethod();         
-                // });
             });
-            services.AddControllersWithViews()
-                    .AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                    );
+
+        
+
+            // Declare Automapper
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +58,6 @@ namespace WebBlogAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
 
             app.UseHttpsRedirection();
 

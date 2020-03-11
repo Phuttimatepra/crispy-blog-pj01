@@ -12,13 +12,13 @@ namespace WebBlogAPI.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("AllowAll")]
-    public class LoginController : ControllerBase
+    public class FirstTimesController : ControllerBase
     {
 
-        ILogger<LoginController> _logger;
+        ILogger<FirstTimesController> _logger;
         public DatabaseContext _databaseContext { get; }
 
-        public LoginController(ILogger<LoginController> logger, DatabaseContext databaseContext) : base()
+        public FirstTimesController(ILogger<FirstTimesController> logger, DatabaseContext databaseContext) : base()
         {
             _databaseContext = databaseContext;
             _logger = logger;
@@ -40,6 +40,7 @@ namespace WebBlogAPI.Controllers
             }
         }
 
+        // 
         [HttpGet("show/{id}")]
         public ActionResult<Member> ShowByID(int id)
         {
@@ -65,7 +66,8 @@ namespace WebBlogAPI.Controllers
         }
 
         // create
-        [HttpPost("addData")]
+        // https://localhost:5001/api/firsttimes/adddata
+        [HttpPost("adddata")]
         public IActionResult InsertPost([FromBody] Member model)
         {
             try
