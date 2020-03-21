@@ -47,7 +47,7 @@ namespace WebBlogAPI.Controllers
             try
             {
                 var data = _databaseContext.Members.Find(id); // datatype เป็น var หรือ Model Name ก็ได้ แต่ถ้าเป็นโมเดล จะลดความผิดพลาดมากกว่า
-                
+
                 if (data != null)
                 {
                     return Ok(data);
@@ -60,7 +60,7 @@ namespace WebBlogAPI.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 return BadRequest(ex);
             }
         }
@@ -92,7 +92,7 @@ namespace WebBlogAPI.Controllers
             try
             {
                 Member data = _databaseContext.Members.Find(id);
-                
+
                 if (data != null)
                 {
                     data.Username = model.Username;
@@ -102,13 +102,14 @@ namespace WebBlogAPI.Controllers
                     _databaseContext.Members.Update(data);
                     _databaseContext.SaveChanges();
                     return Ok(data);
-                    
-                }else
+
+                }
+                else
                 {
                     return null;
-                    
+
                 }
-                    
+
             }
             catch (Exception ex)
             {
@@ -123,7 +124,7 @@ namespace WebBlogAPI.Controllers
             try
             {
                 var data = _databaseContext.Members.Find(id);
-                
+
                 if (data != null)
                 {
                     data.Email = model.Email;
@@ -131,13 +132,14 @@ namespace WebBlogAPI.Controllers
                     _databaseContext.Members.Update(data);
                     _databaseContext.SaveChanges();
                     return Ok(data);
-                    
-                }else
+
+                }
+                else
                 {
                     return NotFound();
-                    
+
                 }
-                    
+
             }
             catch (Exception ex)
             {
@@ -155,11 +157,11 @@ namespace WebBlogAPI.Controllers
                 Member data = _databaseContext.Members.Find(id);
                 if (data != null)
                 {
-                    
+
                     _databaseContext.Members.Remove(data);
                     _databaseContext.SaveChanges();
                     return Ok();
-                    
+
                 }
                 else
                 {
@@ -171,6 +173,13 @@ namespace WebBlogAPI.Controllers
                 _logger.LogError("Failed to execute DELETE");
                 return BadRequest(ex);
             }
+        }
+
+        [HttpGet("fttpget")]
+        public ActionResult<FirstTimesTextPage> fttpshow()
+        {
+            var data = _databaseContext.FirstTimesTextPages.ToList();
+            return Ok(data);
         }
     }
 }
