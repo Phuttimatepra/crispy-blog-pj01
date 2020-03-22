@@ -6,16 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstTimesComponent } from './components/first-times/first-times.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/master/header/header/header.component';
+import { FooterComponent } from './components/master/footer/footer/footer.component';
+import { Page2Component } from './components/page2/page2/page2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstTimesComponent
+    FirstTimesComponent,
+    HeaderComponent,
+    FooterComponent,
+    Page2Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
+    AppRoutingModule, // call app-routing.module.ts
     HttpClientModule
   ],
   providers: [],
