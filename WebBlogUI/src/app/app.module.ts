@@ -9,14 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/master/header/header/header.component';
 import { FooterComponent } from './components/master/footer/footer/footer.component';
 import { Page2Component } from './components/page2/page2/page2.component';
+import { RegisterAccComponent } from './components/register-acc/register-acc.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ // declare all components
     AppComponent,
     FirstTimesComponent,
     HeaderComponent,
     FooterComponent,
-    Page2Component
+    Page2Component,
+    RegisterAccComponent
   ],
   imports: [
     BrowserModule,
